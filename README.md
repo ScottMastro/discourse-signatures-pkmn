@@ -2,36 +2,20 @@
 
 This is a forked version of discourse-signatures:
 https://meta.discourse.org/t/discourse-signatures/42263
+Uses spritesheets from:
+https://github.com/msikma/pokesprite-spritesheet
 
-Original README:
-
-Felling nostalgic of old VBulletin days? Wanna spam and flame like it's 2000?
-
-![signature](https://cloud.githubusercontent.com/assets/1385470/11614719/c94ba4aa-9c31-11e5-9f32-67decaf0f3d3.png)
-
-**Install Discourse Signatures!**
+**PKMN Flavoured Discourse Signatures!**
+![signature](https://raw.githubusercontent.com/ScottMastro/discourse-signatures-pkmn/main/example.png)
 
 ## Installation
 
 Proceed with a normal [installation of a plugin](https://meta.discourse.org/t/install-a-plugin/19157?u=falco).
+You need to enable the plugins options for all users on Settings -> Plugins
 
 ## After Installation
 
-You need to enable the plugins options for all users on Settings -> Plugins:
+Each user need to enable and select up to six sprites on their profile:
+![signatures-preferences](https://raw.githubusercontent.com/ScottMastro/discourse-signatures-pkmn/main/example2.png)
 
-![signatures-admin](https://cloud.githubusercontent.com/assets/1385470/11616473/2c29715c-9c63-11e5-832d-6d171ca5ad79.png)
-
-And each user need to enable and select a signature on his/her profile:
-
-![signatures-preferences](https://cloud.githubusercontent.com/assets/1385470/11616474/2c4426d2-9c63-11e5-88c6-93712ad0bb74.png)
-
-and thats it!
-
-## Advanced Mode
-
-You can now enable **advanced mode** on the plugin settings and use a full blow post editor to create your signature! With text, multiple images, etc.
-
-## About
-
-This is a work in progress! Feel free to use and ask questions here, or on [Discourse Meta](https://meta.discourse.org/t/discourse-signatures/42263).
-
+The specific string to use to choose each sprite can be seen here https://github.com/msikma/pokesprite-spritesheet/blob/master/index.html
