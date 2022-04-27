@@ -3,11 +3,18 @@ import RawHtml from "discourse/widgets/raw-html";
 import { isEmpty } from "@ember/utils";
 
 function attachSignature(api, siteSettings) {
-  api.includePostAttributes("user_signature");
+  api.includePostAttributes("signature_pkmn_1");
+  api.includePostAttributes("signature_pkmn_2");
+  api.includePostAttributes("signature_pkmn_3");
+  api.includePostAttributes("signature_pkmn_4");
+  api.includePostAttributes("signature_pkmn_5");
+  api.includePostAttributes("signature_pkmn_6");
 
   api.decorateWidget("post-contents:after-cooked", (dec) => {
     const attrs = dec.attrs;
-    if (isEmpty(attrs.user_signature)) {
+    if (isEmpty(attrs.signature_pkmn_1) && isEmpty(attrs.signature_pkmn_2) &&
+        isEmpty(attrs.signature_pkmn_3) && isEmpty(attrs.signature_pkmn_4) &&
+        isEmpty(attrs.signature_pkmn_5) && isEmpty(attrs.signature_pkmn_6)) {
       return;
     }
 
@@ -22,31 +29,24 @@ function attachSignature(api, siteSettings) {
       enabled = siteSettings.signatures_visible_by_default;
     }
     if (enabled) {
-      if (siteSettings.signatures_advanced_mode) {
         return [
-          dec.h("hr"),
-          dec.h(
-            "div",
-            new RawHtml({
-              html: `<div class='user-signature'>${attrs.user_signature}</div>`,
-            })
-          ),
+          //dec.h("hr"),
+          dec.h("div.user-signature", [
+             dec.h("span".concat(attrs.signature_pkmn_1)),
+             dec.h("span".concat(attrs.signature_pkmn_2)),
+             dec.h("span".concat(attrs.signature_pkmn_3)),
+             dec.h("span".concat(attrs.signature_pkmn_4)),
+             dec.h("span".concat(attrs.signature_pkmn_5)),
+             dec.h("span".concat(attrs.signature_pkmn_6))
+	  ])
         ];
-      } else {
-        return [
-          dec.h("hr"),
-          dec.h("img.signature-img", {
-            attributes: { src: attrs.user_signature },
-          }),
-        ];
-      }
     }
   });
 }
 
 function addSetting(api) {
   api.modifyClass("controller:preferences/profile", {
-    pluginId: "discourse-signatures",
+    pluginId: "discourse-signatures-pkmn",
 
     actions: {
       save() {

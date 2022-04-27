@@ -1,6 +1,9 @@
-# Discourse Signatures
+# Discourse Signatures PKMN
 
+This is a forked version of discourse-signatures:
 https://meta.discourse.org/t/discourse-signatures/42263
+
+Original README:
 
 Felling nostalgic of old VBulletin days? Wanna spam and flame like it's 2000?
 
@@ -32,7 +35,3 @@ You can now enable **advanced mode** on the plugin settings and use a full blow 
 
 This is a work in progress! Feel free to use and ask questions here, or on [Discourse Meta](https://meta.discourse.org/t/discourse-signatures/42263).
 
-## TODO
-
-- Figure out a way so the user doesn't have to refresh te browser to change the `see signatures` options
-- Cache the cooked signatures
