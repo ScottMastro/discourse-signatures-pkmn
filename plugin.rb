@@ -75,3 +75,4 @@ register_asset "stylesheets/common/signatures.scss"
 register_asset "stylesheets/common/pokesprite-pokemon-gen8.css"
 register_asset "stylesheets/common/pokesprite-inventory.css"
 register_asset "stylesheets/common/pokesprite-misc.css"
+register_asset 'stylesheets/mobile/mobile.scss', :mobile
