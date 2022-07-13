@@ -19,8 +19,6 @@ function checkSignature(string){
     return "";
   }
 
-  console.log(string)
-
   return string
 }
 
