@@ -1,4 +1,3 @@
-.pokesprite { display: inline-block }
 .pokesprite.pokemon { width: 68px; height: 56px; background-image: url('/plugins/discourse-signatures-pkmn/images/pokesprite-pokemon-gen8-04072022.png'); image-rendering: pixelated; image-rendering: -moz-crisp-edges }
 .pokesprite.bulbasaur { background-position: -0px -0px }
 .pokesprite.ivysaur { background-position: -70px -0px }

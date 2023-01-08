@@ -1,4 +1,3 @@
-.pokesprite { display: inline-block }
 .pokesprite.apricorn { width: 32px; height: 32px; background-image: url('/plugins/discourse-signatures-pkmn/images/pokesprite-inventory-04072022.png'); image-rendering: pixelated; image-rendering: -moz-crisp-edges }
 .pokesprite.av-candy { width: 32px; height: 32px; background-image: url('/plugins/discourse-signatures-pkmn/images/pokesprite-inventory-04072022.png'); image-rendering: pixelated; image-rendering: -moz-crisp-edges }
 .pokesprite.ball { width: 32px; height: 32px; background-image: url('/plugins/discourse-signatures-pkmn/images/pokesprite-inventory-04072022.png'); image-rendering: pixelated; image-rendering: -moz-crisp-edges }

@@ -1,6 +1,22 @@
 .user-signature {
   max-width: calc(100% - 5px);
   margin-top: -16px;
+  display: flex;
+  width: fit-content;
+}
+
+.sig-div{
+  width: 68px;
+  height: 56px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+
+.pokesprite {
+  display: inline-block; 
+  position: absolute;
+  bottom: 0;
 }
 
 .pokesprite.pokemon:hover {

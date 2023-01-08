@@ -1,4 +1,3 @@
-.pokesprite { display: inline-block }
 .pokesprite.ribbon { background-image: url('/plugins/discourse-signatures-pkmn/images/pokesprite-misc-04072022.png'); image-rendering: pixelated; image-rendering: -moz-crisp-edges }
 .pokesprite.body-style { background-image: url('/plugins/discourse-signatures-pkmn/images/pokesprite-misc-04072022.png'); image-rendering: pixelated; image-rendering: -moz-crisp-edges }
 .pokesprite.special-attribute { background-image: url('/plugins/discourse-signatures-pkmn/images/pokesprite-misc-04072022.png'); image-rendering: pixelated; image-rendering: -moz-crisp-edges }

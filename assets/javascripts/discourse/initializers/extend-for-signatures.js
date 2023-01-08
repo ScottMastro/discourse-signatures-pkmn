@@ -61,12 +61,12 @@ function attachSignature(api, siteSettings) {
         return [
           //dec.h("hr"),
           dec.h("div.user-signature", [
-             dec.h("span".concat(attrs.signature_pkmn_1)),
-             dec.h("span".concat(attrs.signature_pkmn_2)),
-             dec.h("span".concat(attrs.signature_pkmn_3)),
-             dec.h("span".concat(attrs.signature_pkmn_4)),
-             dec.h("span".concat(attrs.signature_pkmn_5)),
-             dec.h("span".concat(attrs.signature_pkmn_6))
+            dec.h("div.sig-div", dec.h("span".concat(attrs.signature_pkmn_1))),
+            dec.h("div.sig-div", dec.h("span".concat(attrs.signature_pkmn_2))),
+            dec.h("div.sig-div", dec.h("span".concat(attrs.signature_pkmn_3))),
+            dec.h("div.sig-div", dec.h("span".concat(attrs.signature_pkmn_4))),
+            dec.h("div.sig-div", dec.h("span".concat(attrs.signature_pkmn_5))),
+            dec.h("div.sig-div", dec.h("span".concat(attrs.signature_pkmn_6)))
 	  ])
         ];
     }
