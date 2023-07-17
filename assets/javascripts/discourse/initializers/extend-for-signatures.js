@@ -1,5 +1,4 @@
 import { withPluginApi } from "discourse/lib/plugin-api";
-import RawHtml from "discourse/widgets/raw-html";
 import { isEmpty } from "@ember/utils";
 
 function checkSignature(string){
@@ -54,7 +53,7 @@ function attachSignature(api, siteSettings) {
         currentUser.get("custom_fields.see_signatures") ??
         siteSettings.signatures_visible_by_default;
     } else {
-      enabled = siteSettings.signatures_visible_by_default;
+      enabled = siteSettings.signatures_visible_for_guests;
     }
     if (enabled) {
 

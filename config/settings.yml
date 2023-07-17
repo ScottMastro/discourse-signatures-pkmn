@@ -2,6 +2,11 @@ plugins:
   signatures_enabled:
     default: true
     client: true
-  signatures_visible_by_default:
+
+  signatures_visible_for_guests:
     default: false
+    client: true
+
+  signatures_visible_by_default:
+    default: true
     client: true

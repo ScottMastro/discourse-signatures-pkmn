@@ -2,7 +2,7 @@
 
 # name: discourse-signatures-pkmn
 # about: Adds PKMN style signatures to Discourse posts
-# version: 0.1
+# version: 1.0.1
 # author: Scott Mastro
 # url: https://github.com/ScottMastro/discourse-signatures-pkmn
 # transpile_js: true
