@@ -4,30 +4,92 @@
   display: flex;
   width: fit-content;
 }
+.user-signature-rectangle{
+    height: 10px;
+    width: 30%;
+    background-color: var(--d-hover);
+    border-radius: 5px;
+    position: absolute;
+    bottom: 0;
+    border-style: solid;
+    border-width: 1px;
+    border-color: var(--d-hover);
+  }
 
-.sig-div{
-  width: 68px;
-  height: 56px;
-  position: relative;
-  display: flex;
-  justify-content: center;
-}
-
-.pokesprite {
+.signature-pokemon {
+  height: auto;
+  image-rendering: pixelated;
   display: inline-block; 
   position: absolute;
   bottom: 0;
+  z-index: 2;
 }
 
-.pokesprite.pokemon:hover {
-  animation: HoverMoveUpDown 0.25s linear infinite;
+.signature-item {
+  image-rendering: pixelated;
+  image-rendering: -moz-crisp-edges;
+  display: inline-block; 
+  position: absolute;
+  bottom: 0;
+  z-index: 2;
 }
 
-@keyframes HoverMoveUpDown {
+.signature-slot{
+  display: flex;
+  justify-content: center;
+  width: 68px;
+  height: 56px;
+  position: relative;
+}
+
+.shiny-effect {
+  position: absolute;
+  z-index: 3;
+  width: 40px;
+  height: 40px;
+  background-image: url('/assets/images/sparkle_sheet.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  bottom: 0;
+
+}
+
+.signature-slot:hover .signature-pokemon {
+  animation: hoverMoveUpDown 0.25s linear infinite;
+}
+
+.signature-slot:hover .signature-item {
+  animation: rolling 0.5s ease-in-out infinite;
+}
+
+.signature-slot:hover .shiny-effect {
+  animation: spriteAnimation 0.5s steps(28) forwards;
+}
+
+@keyframes hoverMoveUpDown {
   0%, 100% {
     transform: translateY(0);
   }
   50% {
     transform: translateY(-4px);
+  }
+}
+
+@keyframes spriteAnimation {
+  0% { background-position: 0 0; }
+  /* the 8 comes from 400/40 
+    = height of sparkle image / target height */
+  100% { background-position: calc(-11200px / 10) 0; }
+}
+
+@keyframes rolling {
+  0%, 100% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(-10deg);
+  }
+  75% {
+    transform: rotate(10deg);
   }
 }
