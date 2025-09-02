@@ -79,4 +79,3 @@ after_initialize do
 end
 
 register_asset "stylesheets/common/signatures.scss"
-register_asset "stylesheets/mobile/mobile.scss", :mobile
