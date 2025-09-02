@@ -1,25 +1,51 @@
+.pkmn-row {
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+
+  .pkmn-thumb {
+    width: 32px;
+    height: 32px;
+    object-fit: contain;
+    flex-shrink: 0;
+  }
+}
+
+.pkmn-select-box .select-kit-body {
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+.pkmn-row span {
+  flex: 1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
 .user-signature {
   max-width: calc(100% - 5px);
   margin-top: -16px;
   display: flex;
   width: fit-content;
 }
-.user-signature-rectangle{
-    height: 10px;
-    width: 30%;
-    background-color: var(--d-hover);
-    border-radius: 5px;
-    position: absolute;
-    bottom: 0;
-    border-style: solid;
-    border-width: 1px;
-    border-color: var(--d-hover);
-  }
+
+.user-signature-rectangle {
+  height: 10px;
+  width: 30%;
+  background-color: var(--d-hover);
+  border-radius: 5px;
+  position: absolute;
+  bottom: 0;
+  border-style: solid;
+  border-width: 1px;
+  border-color: var(--d-hover);
+}
 
 .signature-pokemon {
   height: auto;
   image-rendering: pixelated;
-  display: inline-block; 
+  display: inline-block;
   position: absolute;
   bottom: 0;
   z-index: 2;
@@ -27,14 +53,14 @@
 
 .signature-item {
   image-rendering: pixelated;
-  image-rendering: -moz-crisp-edges;
-  display: inline-block; 
+  image-rendering: crisp-edges;
+  display: inline-block;
   position: absolute;
   bottom: 0;
   z-index: 2;
 }
 
-.signature-slot{
+.signature-slot {
   display: flex;
   justify-content: center;
   width: 68px;
@@ -47,11 +73,10 @@
   z-index: 3;
   width: 40px;
   height: 40px;
-  background-image: url('/plugins/discourse-signatures-pkmn/images/sparkle_sheet.png');
+  background-image: url("/plugins/discourse-signatures-pkmn/images/sparkle_sheet.png");
   background-repeat: no-repeat;
   background-size: cover;
   bottom: 0;
-
 }
 
 .signature-slot:hover .signature-pokemon {
@@ -67,28 +92,39 @@
 }
 
 @keyframes hoverMoveUpDown {
-  0%, 100% {
+  0%,
+  100% {
     transform: translateY(0);
   }
+
   50% {
     transform: translateY(-4px);
   }
 }
 
 @keyframes spriteAnimation {
-  0% { background-position: 0 0; }
+  0% {
+    background-position: 0 0;
+  }
+
   /* the 8 comes from 400/40 
     = height of sparkle image / target height */
-  100% { background-position: calc(-11200px / 10) 0; }
+
+  100% {
+    background-position: calc(-11200px / 10) 0;
+  }
 }
 
 @keyframes rolling {
-  0%, 100% {
+  0%,
+  100% {
     transform: rotate(0deg);
   }
+
   25% {
     transform: rotate(-10deg);
   }
+
   75% {
     transform: rotate(10deg);
   }
