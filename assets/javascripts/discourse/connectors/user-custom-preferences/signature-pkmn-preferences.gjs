@@ -1,7 +1,10 @@
 import Component from "@glimmer/component";
 import { tracked } from "@glimmer/tracking";
 import { Input } from "@ember/component";
+import { array , concat, fn } from "@ember/helper";
+import { action, get } from "@ember/object";
 import { htmlSafe } from "@ember/template";
+import DButton from "discourse/components/d-button";
 import { i18n } from "discourse-i18n";
 import PkmnSelectBox from "../../components/pkmn-select-box";
 
@@ -11,9 +14,11 @@ export default class PkmnSignaturePreferences extends Component {
   }
 
   @tracked options = [];
+  @tracked slots = {};
 
   constructor() {
     super(...arguments);
+    this.slots = { ...this.args.outletArgs.model.custom_fields };
     this.loadPKMN();
   }
 
@@ -37,6 +42,18 @@ export default class PkmnSignaturePreferences extends Component {
         ),
       };
     });
+  }
+
+  @action
+  updateSlot(slot, value) {
+    this.slots = {
+      ...this.slots,
+      [`signature_pkmn_${slot}`]: value,
+    };
+    this.args.outletArgs.model.custom_fields = { ...this.slots };
+
+    console.log(`Updating slot ${slot} to ${value}`, this.args.outletArgs.model.custom_fields);
+
   }
 
   async loadPKMN(retries = 3, delay = 1000) {
@@ -67,64 +84,28 @@ export default class PkmnSignaturePreferences extends Component {
       </div>
     </div>
 
-    <div class="control-group signatures">
-      <label class="control-label">{{i18n "signatures.my_pkmn_1"}}</label>
-      <div class="controls">
-        <PkmnSelectBox
-          @content={{this.options}}
-          @value={{@outletArgs.model.custom_fields.signature_pkmn_1}}
-        />
+    {{!-- Loop through 6 slots --}}
+    {{#each (array 1 2 3 4 5 6) as |slot|}}
+      <div class="control-group signatures">
+        <label class="control-label">
+          {{i18n (concat "signatures.my_pkmn_" slot)}}
+        </label>
+        <div class="controls flex-row">
+          <PkmnSelectBox
+            @content={{this.options}}
+            @value={{get this.slots (concat "signature_pkmn_" slot)}}
+            @onChange={{fn this.updateSlot slot}}
+          />
+          {{#if (get this.slots (concat "signature_pkmn_" slot))}}
+            <DButton
+              @action={{fn this.updateSlot slot ""}}
+              @icon="xmark"
+              @title="delete"
+              class="destroy btn-danger pkmn-delete-button"
+            />
+          {{/if}}
+        </div>
       </div>
-    </div>
-
-    <div class="control-group signatures">
-      <label class="control-label">{{i18n "signatures.my_pkmn_2"}}</label>
-      <div class="controls">
-        <PkmnSelectBox
-          @content={{this.options}}
-          @value={{@outletArgs.model.custom_fields.signature_pkmn_2}}
-        />
-      </div>
-    </div>
-
-    <div class="control-group signatures">
-      <label class="control-label">{{i18n "signatures.my_pkmn_3"}}</label>
-      <div class="controls">
-        <PkmnSelectBox
-          @content={{this.options}}
-          @value={{@outletArgs.model.custom_fields.signature_pkmn_3}}
-        />
-      </div>
-    </div>
-
-    <div class="control-group signatures">
-      <label class="control-label">{{i18n "signatures.my_pkmn_4"}}</label>
-      <div class="controls">
-        <PkmnSelectBox
-          @content={{this.options}}
-          @value={{@outletArgs.model.custom_fields.signature_pkmn_4}}
-        />
-      </div>
-    </div>
-
-    <div class="control-group signatures">
-      <label class="control-label">{{i18n "signatures.my_pkmn_5"}}</label>
-      <div class="controls">
-        <PkmnSelectBox
-          @content={{this.options}}
-          @value={{@outletArgs.model.custom_fields.signature_pkmn_5}}
-        />
-      </div>
-    </div>
-
-    <div class="control-group signatures">
-      <label class="control-label">{{i18n "signatures.my_pkmn_6"}}</label>
-      <div class="controls">
-        <PkmnSelectBox
-          @content={{this.options}}
-          @value={{@outletArgs.model.custom_fields.signature_pkmn_6}}
-        />
-      </div>
-    </div>
+    {{/each}}
   </template>
 }
