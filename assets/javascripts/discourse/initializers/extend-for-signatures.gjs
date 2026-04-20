@@ -1,5 +1,4 @@
 import Component from "@glimmer/component";
-import { service } from "@ember/service";
 import { isEmpty } from "@ember/utils";
 import { withPluginApi } from "discourse/lib/plugin-api";
 
@@ -21,9 +20,6 @@ class UserSignature extends Component {
       return siteSettings.signatures_visible_for_guests;
     }
   }
-
-  @service siteSettings;
-  @service currentUser;
 
   get slots() {
     const post = this.args.post;

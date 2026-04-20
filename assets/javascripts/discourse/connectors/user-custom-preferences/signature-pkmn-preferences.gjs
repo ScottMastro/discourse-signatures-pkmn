@@ -1,9 +1,9 @@
 import Component from "@glimmer/component";
 import { tracked } from "@glimmer/tracking";
 import { Input } from "@ember/component";
-import { array , concat, fn } from "@ember/helper";
+import { array, concat, fn } from "@ember/helper";
 import { action, get } from "@ember/object";
-import { htmlSafe } from "@ember/template";
+import { trustHTML } from "@ember/template";
 import DButton from "discourse/components/d-button";
 import { i18n } from "discourse-i18n";
 import PkmnSelectBox from "../../components/pkmn-select-box";
@@ -37,7 +37,7 @@ export default class PkmnSignaturePreferences extends Component {
         ...item,
         url,
         id: item.id,
-        name: htmlSafe(
+        name: trustHTML(
           `<div class="pkmn-row"><img src="${url}" class="pkmn-thumb"/> ${item.id}</div>`
         ),
       };
@@ -51,19 +51,14 @@ export default class PkmnSignaturePreferences extends Component {
       [`signature_pkmn_${slot}`]: value,
     };
     this.args.outletArgs.model.custom_fields = { ...this.slots };
-
-    console.log(`Updating slot ${slot} to ${value}`, this.args.outletArgs.model.custom_fields);
-
   }
 
   async loadPKMN(retries = 3, delay = 1000) {
     try {
       this.options = await this.fetchPKMN();
-    } catch (e) {
+    } catch {
       if (retries > 0) {
         setTimeout(() => this.loadPKMN(retries - 1, delay), delay);
-      } else {
-        console.error("Giving up on fetching Pokémon list.", e.message);
       }
     }
   }
@@ -84,7 +79,7 @@ export default class PkmnSignaturePreferences extends Component {
       </div>
     </div>
 
-    {{!-- Loop through 6 slots --}}
+    {{! Loop through 6 slots }}
     {{#each (array 1 2 3 4 5 6) as |slot|}}
       <div class="control-group signatures">
         <label class="control-label">

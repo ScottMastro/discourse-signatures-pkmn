@@ -1,9 +1,9 @@
 import { classNames } from "@ember-decorators/component";
-import DropdownSelectBox from "select-kit/components/dropdown-select-box";
+import DropdownSelectBox from "discourse/select-kit/components/dropdown-select-box";
 import {
   pluginApiIdentifiers,
   selectKitOptions,
-} from "select-kit/components/select-kit";
+} from "discourse/select-kit/components/select-kit";
 
 @classNames("pkmn-select-box")
 @selectKitOptions({
