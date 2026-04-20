@@ -1,4 +1,4 @@
-plugins:
+signatures_pkmn:
   signatures_enabled:
     default: true
     client: true

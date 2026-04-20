@@ -1,4 +1,9 @@
 en:
+  admin_js:
+    admin:
+      site_settings:
+        categories:
+          signatures_pkmn: "Signatures PKMN"
   js:
     signatures:
       enable_signatures: "Enable Signatures"

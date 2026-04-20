@@ -2,12 +2,14 @@
 
 # name: discourse-signatures-pkmn
 # about: Adds PKMN style signatures to Discourse posts
-# version: 1.2
+# version: 1.3
 # authors: ScottMastro
 # url: https://github.com/ScottMastro/discourse-signatures-pkmn
 # transpile_js: true
 
 enabled_site_setting :signatures_enabled
+
+register_svg_icon "paw" if respond_to?(:register_svg_icon)
 
 # Adds a custom user field to the serialized current user object
 # (ie. so the front-end can see it)
